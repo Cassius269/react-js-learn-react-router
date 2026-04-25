@@ -8,7 +8,9 @@ function ErrorBoundary() {
     <>
       <h1>Une erreur a été détectée</h1>
       <p className="text-danger text-center fs-5">
-        {error?.status ? `Erreur ${error.status}` : error.message}
+        {error?.status
+          ? `Erreur ${error.status}`
+          : (error.message ?? "Erreur inconnue")}
       </p>
     </>
   );

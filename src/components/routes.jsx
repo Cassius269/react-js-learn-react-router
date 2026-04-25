@@ -7,7 +7,7 @@ import ErrorBoundary from "../pages/ErrorBoundary/ErrorBoundary";
 export const ROUTER = createBrowserRouter([
   {
     path: "/", // URL relative du composant
-    // element: <App />, // composant parent
+    // element: <App />, // composant racine
     Component: App, // réference à la fonction du composant
     ErrorBoundary: ErrorBoundary, // capturer les erreurs et afficher le composant ErrorBoundary
     children: [
