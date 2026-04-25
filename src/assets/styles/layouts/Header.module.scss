@@ -1,0 +1,8 @@
+@use '../utils/variables' as *; // Importation des variables
+@use '../utils/placeholders' as *;
+
+header {
+    @extend %box-shadow;
+
+
+}
