@@ -1,0 +1,14 @@
+ @use '../utils/variables' as *; // Importation des variables
+
+ nav {
+        a {
+            color: $info;
+            text-decoration: none;
+            font-size: 18px;
+
+            &:global(.active) {
+            color: $tertiary;
+            font-weight: bold;
+        }
+        }
+    }

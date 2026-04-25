@@ -3,6 +3,8 @@ import App from "../App";
 import Homepage from "../pages/Homepage/Homepage";
 import Profile from "../pages/Profile/Profile";
 import ErrorBoundary from "../pages/ErrorBoundary/ErrorBoundary";
+import ProfileOverView from "../pages/Profile/pages/ProfileOverView/ProfileOverView";
+import ProfileData from "../pages/Profile/pages/ProfileData/ProfileData";
 
 export const ROUTER = createBrowserRouter([
   {
@@ -20,6 +22,16 @@ export const ROUTER = createBrowserRouter([
         path: "profile",
         caseSensitive: true,
         Component: Profile,
+        children: [
+          {
+            index: true, // rendre par défaut le composant ProfileOverView avec l'url "/profile"
+            Component: ProfileOverView,
+          },
+          {
+            path: "data",
+            Component: ProfileData,
+          },
+        ],
       },
     ],
   },
