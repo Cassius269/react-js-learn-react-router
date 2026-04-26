@@ -5,6 +5,7 @@ import Profile from "../pages/Profile/Profile";
 import ErrorBoundary from "../pages/ErrorBoundary/ErrorBoundary";
 import ProfileOverView from "../pages/Profile/pages/ProfileOverView/ProfileOverView";
 import ProfileData from "../pages/Profile/pages/ProfileData/ProfileData";
+import { homepageLoader } from "../loaders/hompageLoader";
 
 export const ROUTER = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const ROUTER = createBrowserRouter([
         // path: "/",
         index: true, // déclarer cette route comme route principale de l'application
         Component: Homepage,
+        hydrateFallbackElement: (
+          <p className="text-center mt-5">Chargement en cours</p>
+        ),
+        loader: homepageLoader, // source de données de la page d'accueil
       },
       {
         path: "profile/:id?/:name?", // paramètres optionnels

@@ -1,23 +1,8 @@
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router";
 
 function Homepage() {
-  const [recipes, setRecipes] = useState([]);
+  const { recipes } = useLoaderData();
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      const response = await fetch("https://www.restapi.fr/api/recipes");
-
-      if (response.ok) {
-        const data = await response.json();
-        setRecipes(Array.isArray(data) ? data : [data]);
-        console.log(data);
-      } else {
-        console.log("Ooops une erreur");
-      }
-    };
-
-    getRecipes();
-  }, []);
   return (
     <>
       <h1>Je suis la page d'accueil</h1>
