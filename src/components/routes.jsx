@@ -8,6 +8,7 @@ import ProfileData from "../pages/Profile/pages/ProfileData/ProfileData";
 import { homepageLoader } from "../loaders/hompageLoader";
 import { rootLoader } from "../loaders/rootLoader";
 import { FallbackLayout } from "./fallbacks/FallbackLayout";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 export const ROUTER = createBrowserRouter([
   {
@@ -22,15 +23,16 @@ export const ROUTER = createBrowserRouter([
         // path: "/",
         index: true, // déclarer cette route comme route principale de l'application
         Component: Homepage,
-        // hydrateFallbackElement: (
-        //   <p className="text-center mt-5">Chargement en cours</p>
-        // ),
         loader: homepageLoader, // source de données de la page d'accueil
       },
       {
         path: "profile/:id?/:name?", // paramètres optionnels
         caseSensitive: true,
-        Component: Profile,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
         children: [
           {
             index: true, // rendre par défaut le composant ProfileOverView avec l'url "/profile"
