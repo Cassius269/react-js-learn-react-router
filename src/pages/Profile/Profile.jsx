@@ -1,8 +1,22 @@
-import { NavLink, Outlet } from "react-router";
+import { useEffect } from "react";
+import { NavLink, Outlet, useParams, useSearchParams } from "react-router";
 // import "../../assets/styles/layouts/Profile.module.scss";
 
 function Profile() {
   // throw new Error("Ooops, une erreur");
+
+  // Récupérer les paramètres dynamqiques d'URL
+  const params = useParams();
+  const { id, name } = params; // destructuration de l'objet params
+  console.log(id, name);
+
+  // Récupérer les paramètres optionnels de recherche d'URL
+  const [queryParams, setQueryParams] = useSearchParams();
+  useEffect(() => {
+    console.log(Object.fromEntries(queryParams)); // afficher tous les paramètres optionnesl
+    console.log(queryParams.get("name"));
+    console.log(queryParams.get("token"));
+  }, [queryParams]);
 
   return (
     <>

@@ -19,7 +19,7 @@ export const ROUTER = createBrowserRouter([
         Component: Homepage,
       },
       {
-        path: "profile",
+        path: "profile/:id?/:name?", // paramètres optionnels
         caseSensitive: true,
         Component: Profile,
         children: [
@@ -29,6 +29,10 @@ export const ROUTER = createBrowserRouter([
           },
           {
             path: "data",
+            Component: ProfileData,
+          },
+          {
+            path: "data/*", // définition de la route par défaut et le composant à afficher le cas échéant pour éviter les erreurs 404 (objectif UX)
             Component: ProfileData,
           },
         ],
