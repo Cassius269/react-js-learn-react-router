@@ -2,9 +2,10 @@ import { NavLink, useMatch } from "react-router";
 import styles from "../../assets/styles/layouts/Header.module.scss";
 
 function Header() {
+  // Veérifier si lien actif match avec celui du profile
   const isActive = useMatch("/profile");
 
-  console.log(isActive);
+  // console.log("/profile est la route courante", isActive);
   return (
     <header
       className={`container-fluid border border-2 p-2 d-flex justify-content-between ${styles.header}`}

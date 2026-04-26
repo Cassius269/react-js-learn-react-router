@@ -13,7 +13,7 @@ function Profile() {
   // Récupérer les paramètres optionnels de recherche d'URL
   const [queryParams, setQueryParams] = useSearchParams();
   useEffect(() => {
-    console.log(Object.fromEntries(queryParams)); // afficher tous les paramètres optionnesl
+    console.log("Les paramètres de recherche", Object.fromEntries(queryParams)); // afficher tous les paramètres optionnesl
     console.log(queryParams.get("name"));
     console.log(queryParams.get("token"));
   }, [queryParams]);
