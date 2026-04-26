@@ -3,8 +3,6 @@ import { NavLink, Outlet, useParams, useSearchParams } from "react-router";
 // import "../../assets/styles/layouts/Profile.module.scss";
 
 function Profile() {
-  // throw new Error("Ooops, une erreur");
-
   // Récupérer les paramètres dynamqiques d'URL
   const params = useParams();
   const { id, name } = params; // destructuration de l'objet params
