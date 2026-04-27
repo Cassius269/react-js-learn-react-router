@@ -15,7 +15,5 @@ export async function createRecipe(recipe) {
     body: JSON.stringify(recipe),
   });
 
-  if (response.ok) {
-    return response.json();
-  }
+  return response;
 }

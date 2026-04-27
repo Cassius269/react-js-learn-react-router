@@ -10,8 +10,7 @@ import { rootLoader } from "../loaders/rootLoader";
 import { FallbackLayout } from "./fallbacks/FallbackLayout";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import ProfileForm from "../pages/Profile/pages/ProfileForm/ProfileForm";
-import { createRecipe } from "../apis/recipes";
-import actionForm from "../actions/actionForm";
+import profileFormAction from "../actions/profileFormAction";
 
 export const ROUTER = createBrowserRouter([
   {
@@ -51,7 +50,7 @@ export const ROUTER = createBrowserRouter([
           },
           {
             path: "form",
-            action: actionForm, //logique de gestion du formulaire
+            action: profileFormAction, //logique de gestion du formulaire
             Component: ProfileForm,
           },
         ],
