@@ -9,6 +9,9 @@ import { homepageLoader } from "../loaders/hompageLoader";
 import { rootLoader } from "../loaders/rootLoader";
 import { FallbackLayout } from "./fallbacks/FallbackLayout";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import ProfileForm from "../pages/Profile/pages/ProfileForm/ProfileForm";
+import { createRecipe } from "../apis/recipes";
+import actionForm from "../actions/actionForm";
 
 export const ROUTER = createBrowserRouter([
   {
@@ -45,6 +48,11 @@ export const ROUTER = createBrowserRouter([
           {
             path: "data/*", // définition de la route par défaut et le composant à afficher le cas échéant pour éviter les erreurs 404 (objectif UX)
             Component: ProfileData,
+          },
+          {
+            path: "form",
+            action: actionForm, //logique de gestion du formulaire
+            Component: ProfileForm,
           },
         ],
       },

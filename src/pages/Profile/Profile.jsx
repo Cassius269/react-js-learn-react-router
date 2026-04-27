@@ -24,6 +24,7 @@ function Profile() {
             Vue globale
           </NavLink>
           <NavLink to="/profile/data">Data</NavLink>
+          <NavLink to="form">Form</NavLink>
         </ul>
       </nav>
 

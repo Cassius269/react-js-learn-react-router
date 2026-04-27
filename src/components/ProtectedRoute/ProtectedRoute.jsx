@@ -1,8 +1,7 @@
-import { Children } from "react";
 import { Navigate } from "react-router";
 
 function ProtectedRoute({ children }) {
-  const auth = false;
+  const auth = true; // ici utilisateur authentifié
   return auth ? children : <Navigate to="/" />;
 }
 

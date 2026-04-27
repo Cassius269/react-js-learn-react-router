@@ -7,9 +7,6 @@ import {
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { rootLoader } from "./loaders/rootLoader";
-import { use } from "react";
-
-function Loading() {}
 
 function App() {
   // const location = useLocation();
