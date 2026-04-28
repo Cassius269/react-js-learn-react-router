@@ -7,6 +7,7 @@ import {
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { rootLoader } from "./loaders/rootLoader";
+import { Suspense } from "react";
 
 function App() {
   // const location = useLocation();
@@ -25,11 +26,15 @@ function App() {
         {/** Le loader global de l'app */}
         {state === "loading" && (
           <h2 className="mt-5 mb-5 text-info">
-            Chargement en cours...depuis le loader globale
+            Chargement des données en cours...depuis le loader globale
           </h2>
         )}
         {/** Outlet permet de remplacer le contenu du composant en fonction de l'URL saisi par l'utilisateur */}
-        <Outlet context={{ user }} />
+        <Suspense
+          fallback={<p className="text-center">chargement du composant</p>}
+        >
+          <Outlet context={{ user }} />
+        </Suspense>
       </main>
       <Footer />
       <ScrollRestoration />

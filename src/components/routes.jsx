@@ -1,16 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
-import Homepage from "../pages/Homepage/Homepage";
-import Profile from "../pages/Profile/Profile";
 import ErrorBoundary from "../pages/ErrorBoundary/ErrorBoundary";
-import ProfileOverView from "../pages/Profile/pages/ProfileOverView/ProfileOverView";
-import ProfileData from "../pages/Profile/pages/ProfileData/ProfileData";
 import { homepageLoader } from "../loaders/hompageLoader";
 import { rootLoader } from "../loaders/rootLoader";
 import { FallbackLayout } from "./fallbacks/FallbackLayout";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
-import ProfileForm from "../pages/Profile/pages/ProfileForm/ProfileForm";
-import profileFormAction from "../actions/profileFormAction";
+import { lazy } from "react";
+import { PROFILE_ROUTES } from "../pages/Profile/routes";
+
+const Homepage = lazy(() => import("../pages/Homepage/Homepage"));
+const Profile = lazy(() => import("../pages/Profile/Profile"));
 
 export const ROUTER = createBrowserRouter([
   {
@@ -35,25 +34,7 @@ export const ROUTER = createBrowserRouter([
             <Profile />
           </ProtectedRoute>
         ),
-        children: [
-          {
-            index: true, // rendre par défaut le composant ProfileOverView avec l'url "/profile"
-            Component: ProfileOverView,
-          },
-          {
-            path: "data",
-            Component: ProfileData,
-          },
-          {
-            path: "data/*", // définition de la route par défaut et le composant à afficher le cas échéant pour éviter les erreurs 404 (objectif UX)
-            Component: ProfileData,
-          },
-          {
-            path: "form",
-            action: profileFormAction, //logique de gestion du formulaire
-            Component: ProfileForm,
-          },
-        ],
+        children: PROFILE_ROUTES,
       },
     ],
   },
