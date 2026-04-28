@@ -1,7 +1,7 @@
 import { getRecipes } from "../apis/recipes";
 
 export async function homepageLoader({ params, request }) {
-  const recipes = await getRecipes();
+  const recipes = getRecipes();
 
   console.log(request);
   // Récupérer l'URL et l'id
